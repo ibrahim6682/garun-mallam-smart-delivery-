@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#075e43">
+  <meta name="description" content="Garun Mallam Smart Delivery - taimaka wa manoma da 'yan kasuwa wajen tsara wuraren kai kaya.">
+  <title>Garun Mallam Smart Delivery</title>
+  <style>
+    :root {
+      --green: #075e43;
+      --light: #eaf6ef;
+      --gold: #f4bd45;
+      --dark: #18332a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--dark);
+      background: #f5f8f5;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--green);
+      color: white;
+      padding: 18px 16px;
+    }
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand { font-weight: bold; font-size: 18px; }
+    .tag { color: var(--gold); font-size: 12px; }
+    .hero {
+      background: var(--green);
+      color: white;
+      padding: 42px 20px 55px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 44px);
+      line-height: 1.2;
+      margin: 10px auto 16px;
+      max-width: 700px;
+    }
+    .hero p { max-width: 600px; margin: auto; color: #e1eee7; }
+    .container { max-width: 850px; margin: -22px auto 40px; padding: 0 15px; }
+    .card {
+      background: white;
+      padding: 23px;
+      border-radius: 16px;
+      box-shadow: 0 5px 22px #173c2710;
+      margin-bottom: 20px;
+    }
+    h2 { color: var(--green); margin-top: 0; }
+    label { display: block; font-weight: bold; margin: 15px 0 6px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccd8d0;
+      border-radius: 9px;
+      font-size: 16px;
+      background: white;
+    }
+    textarea { min-height: 85px; resize: vertical; }
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 14px 18px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .primary { background: var(--green); color: white; width: 100%; margin-top: 18px; }
+    .secondary { background: var(--light); color: var(--green); }
+    .note {
+      background: #fff7df;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 14px;
+    }
+    #result { display: none; background: var(--light); padding: 15px; border-radius: 10px; margin-top: 18px; overflow-wrap: anywhere; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); gap: 12px; }
+    .feature { background: var(--light); padding: 16px; border-radius: 12px; }
+    footer { text-align: center; padding: 25px 15px; color: #64746a; font-size: 13px; }
+    a { color: var(--green); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div>
+        <div class="brand">📍 Garun Mallam Smart Delivery</div>
+        <div class="tag">SMARTER LOCAL DELIVERIES</div>
+      </div>
+      <button class="secondary" onclick="document.getElementById('delivery').scrollIntoView({behavior:'smooth'})">Fara aiki</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div style="font-size:42px">🚚 🌾 🏠</div>
+    <h1>Isar da kaya zuwa inda ya dace.</h1>
+    <p>Wata manhaja da ake haɓakawa domin taimaka wa manoma, masu kayan gini da ƙananan 'yan kasuwa tsara bayanan wurin kai kaya.</p>
+  </section>
+
+  <main class="container">
+    <section class="card" id="delivery">
+      <h2>📦 Shirya bayanan kai kaya</h2>
+      <p>Cika bayanan nan domin ƙirƙirar taƙaitaccen bayanin odar kai kaya.</p>
+      <form id="deliveryForm">
+        <label for="customer">Sunan mai karɓar kaya *</label>
+        <input id="customer" required placeholder="Misali: Musa Abdullahi">
+
+        <label for="phone">Lambar waya *</label>
+        <input id="phone" type="tel" required placeholder="Misali: 08012345678">
+
+        <label for="postcode">Digital Postcode (idan kana da shi)</label>
+        <input id="postcode" placeholder="Shigar da postcode na wurin kai kaya">
+
+        <label for="address">Ƙarin bayani game da adireshi *</label>
+        <textarea id="address" required placeholder="Unguwa, kusa da wane wuri, ko bayanin ginin"></textarea>
+
+        <label for="goods">Nau'in kayan da za a kai</label>
+        <select id="goods">
+          <option>Kayan noma</option>
+          <option>Kayan gini</option>
+          <option>Kayan kasuwanci</option>
+          <option>Wasu kaya</option>
+        </select>
+
+        <label for="notes">Ƙarin bayani (na zaɓi)</label>
+        <textarea id="notes" placeholder="Yawan kaya ko lokacin isarwa da ake so"></textarea>
+
+        <button class="primary" type="submit">Ƙirƙiri taƙaitaccen oda</button>
+      </form>
+
+      <div id="result" aria-live="polite">
+        <h3>Taƙaitaccen bayanin oda</h3>
+        <div id="summary"></div>
+        <p class="note">Wannan bayani an ƙirƙire shi a wayarka ne. Ba a aika shi ga direba ko wani kamfani ba.</p>
+        <button class="secondary" type="button" onclick="copyOrder()">Kwafi bayanin oda</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Me wannan manhaja za ta taimaka da shi?</h2>
+      <div class="features">
+        <div class="feature"><h3>🌾 Manoma</h3><p>Shirya bayanan kai amfanin gona ga masu saye.</p></div>
+        <div class="feature"><h3>🧱 Masu kayan gini</h3><p>Bayyana inda za a kai siminti, ƙarfe da sauran kaya.</p></div>
+        <div class="feature"><h3>🛵 Direbobi</h3><p>Samun bayanan adireshin da mai karɓar kaya ya bayar.</p></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Game da aikin</h2>
+      <p>Garun Mallam Smart Delivery prototype ne da ake haɓakawa. Manufarsa ita ce inganta bayanan wuraren kai kaya a Garun Mallam, Kano State.</p>
+      <p class="note"><strong>Matsayin API:</strong> Har yanzu ba a haɗa wannan prototype da NIPOST Digital Postcode API ba. Ana jiran bayanan damar shiga da takardun fasaha daga NIPOST.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Garun Mallam Smart Delivery · Prototype</p>
+    <p>© 2026 Ibrahim Salisu Hub</p>
+  </footer>
+
+  <script>
+    let currentOrder = "";
+
+    document.getElementById("deliveryForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const data = {
+        "Mai karɓar kaya": document.getElementById("customer").value.trim(),
+        "Lambar waya": document.getElementById("phone").value.trim(),
+        "Digital Postcode": document.getElementById("postcode").value.trim() || "Ba a shigar ba",
+        "Adireshi": document.getElementById("address").value.trim(),
+        "Nau'in kaya": document.getElementById("goods").value,
+        "Ƙarin bayani": document.getElementById("notes").value.trim() || "Babu"
+      };
+
+      currentOrder = Object.entries(data)
+        .map(([key, value]) => key + ": " + value)
+        .join("\n");
+
+      document.getElementById("summary").innerHTML = Object.entries(data)
+        .map(([key, value]) => "<p><strong>" + escapeHTML(key) + ":</strong> " + escapeHTML(value) + "</p>")
+        .join("");
+
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").scrollIntoView({behavior: "smooth"});
+    });
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, function(char) {
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char];
+      });
+    }
+
+    async function copyOrder() {
+      try {
+        await navigator.clipboard.writeText(currentOrder);
+        alert("An kwafi bayanin oda.");
+      } catch (error) {
+        alert("Ba a iya kwafa kai tsaye ba. Za ka iya ɗaukar hoton taƙaitaccen bayanin.");
+      }
+    }
+  </script>
+</body>
+</html>
