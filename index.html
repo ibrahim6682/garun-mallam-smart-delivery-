@@ -2,234 +2,890 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#075e43">
-<meta name="description" content="Garun Mallam Smart Delivery helps local businesses organise delivery details.">
-<title>Garun Mallam Smart Delivery</title>
-<style>
-:root{--green:#075e43;--deep:#063d2e;--gold:#f4bd45;--light:#edf6f0;--ink:#19352b;--muted:#60736a}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#f6f9f6;line-height:1.65}
-header{background:var(--deep);color:white;padding:15px}
-nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{font-weight:800;font-size:16px}
-.brand span{color:var(--gold)}
-.languages{display:flex;gap:7px;align-items:center}
-.lang-btn{border:1px solid #fff;padding:8px 12px;border-radius:8px;background:transparent;color:white;font-weight:bold;cursor:pointer}
-.lang-btn.active{background:var(--gold);color:var(--deep);border-color:var(--gold)}
-.hero{background:linear-gradient(135deg,var(--deep),var(--green));color:white;text-align:center;padding:65px 18px 80px}
-.hero-inner{max-width:820px;margin:auto}
-.eyebrow{color:var(--gold);font-weight:bold;letter-spacing:1px;font-size:12px}
-h1{font-size:clamp(34px,7vw,54px);line-height:1.15;margin:20px 0}
-.hero p{font-size:18px;color:#e0eee6}
-.btn{display:inline-block;border:0;border-radius:9px;padding:12px 17px;font-size:15px;font-weight:bold;text-decoration:none;cursor:pointer}
-.gold{background:var(--gold);color:var(--deep)}
-.white{background:white;color:var(--green)}
-.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:25px}
-.container{max-width:1000px;margin:auto;padding:0 18px}
-.intro,.card,.form-card{background:white;border:1px solid #e2ebe4;border-radius:15px;padding:23px}
-.intro{margin-top:-28px;position:relative;box-shadow:0 8px 30px #102e1a12}
-.section{padding:30px 0 8px}
-h2{color:var(--green);font-size:27px;line-height:1.25}
-h3{margin-bottom:8px}
-.lead,.card p{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:18px}
-.card .icon{font-size:30px}
-label{display:block;font-weight:bold;margin:14px 0 6px}
-input,textarea,select{width:100%;padding:12px;font:inherit;border:1px solid #cbd9ce;border-radius:9px;background:white;color:var(--ink)}
-textarea{min-height:90px}
-.full{width:100%;margin-top:18px}
-.notice{background:#fff7df;border-left:4px solid var(--gold);padding:13px;border-radius:8px;font-size:14px}
-#result{display:none;background:var(--light);padding:16px;border-radius:10px;margin-top:20px;overflow-wrap:anywhere}
-.result-line{padding:7px 0;border-bottom:1px solid #d8e7dc}
-footer{margin-top:40px;background:var(--deep);color:white;text-align:center;padding:25px 15px}
-.small{font-size:13px;color:#d7e6dc}
-@media(max-width:480px){.brand{font-size:13px}.hero{padding-top:45px}.intro,.card,.form-card{padding:17px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#075e43">
+  <meta name="description" content="Garun Mallam Smart Agriculture & Market Hub connects farmers, buyers, agricultural suppliers and young service providers.">
+  <title>Garun Mallam Smart Agriculture & Market Hub</title>
+
+  <style>
+    :root {
+      --green: #075e43;
+      --green2: #0b7956;
+      --light: #edf8f1;
+      --gold: #e9b949;
+      --text: #20312a;
+      --muted: #64746c;
+      --white: #fff;
+      --border: #dce8e0;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6faf7;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 12px #0002;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.3;
+      max-width: 230px;
+    }
+
+    .brand span {
+      display: block;
+      color: #cce9d7;
+      font-size: 11px;
+      font-weight: normal;
+      margin-top: 4px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .language, .menu-btn {
+      background: transparent;
+      border: 1px solid #ffffff80;
+      color: white;
+      border-radius: 8px;
+      padding: 8px 11px;
+      cursor: pointer;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 16px 12px;
+      display: flex;
+      gap: 17px;
+      overflow-x: auto;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #075e43, #0c7954);
+      color: white;
+      padding: 55px 20px;
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #ffe5a1;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(30px, 6vw, 49px);
+      line-height: 1.12;
+      margin: 12px 0;
+      max-width: 760px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #e3f2e9;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 9px;
+      padding: 12px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #25351e;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-light {
+      background: var(--light);
+      color: var(--green);
+      border: 1px solid var(--border);
+    }
+
+    .hero .btn { margin: 8px 8px 0 0; }
+
+    .notice {
+      max-width: 1000px;
+      margin: 18px auto 0;
+      padding: 12px 15px;
+      border-left: 4px solid var(--gold);
+      border-radius: 6px;
+      background: #fff9e9;
+      color: #58491e;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 0 16px;
+      margin: auto;
+    }
+
+    section { padding: 35px 0; }
+
+    .section-title {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 27px;
+      line-height: 1.25;
+    }
+
+    .section-intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 19px;
+      box-shadow: 0 3px 12px #12330b08;
+    }
+
+    .card-icon {
+      font-size: 29px;
+      margin-bottom: 7px;
+    }
+
+    .card h3 { margin: 5px 0; }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 7px;
+    }
+
+    .card a {
+      color: var(--green);
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .form-wrap {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #cbd9cf;
+      background: white;
+      border-radius: 8px;
+      padding: 11px;
+      color: var(--text);
+      min-width: 0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #8ac5a7;
+      border-color: var(--green);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .output {
+      display: none;
+      margin-top: 18px;
+      background: var(--light);
+      border: 1px solid #b9d9c5;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .output pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--light);
+      color: var(--green);
+      border-radius: 30px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .steps {
+      padding-left: 21px;
+    }
+
+    .steps li { margin-bottom: 9px; }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer {
+      background: #103d2e;
+      color: white;
+      padding: 28px 16px;
+      margin-top: 25px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    footer p {
+      color: #d5e9dc;
+      font-size: 13px;
+    }
+
+    footer a { color: #ffe5a1; }
+
+    @media (max-width: 560px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .hero { padding: 40px 17px; }
+      .section-title { font-size: 24px; }
+      .form-wrap { padding: 14px; }
+    }
+  </style>
 </head>
+
 <body>
 <header>
-<nav>
-<div class="brand">📍 GARUN MALLAM <span>SMART DELIVERY</span></div>
-<div class="languages" aria-label="Choose language">
-<button class="lang-btn active" id="enBtn" type="button" onclick="setLanguage('en')">English</button>
-<button class="lang-btn" id="haBtn" type="button" onclick="setLanguage('ha')">Hausa</button>
-</div>
-</nav>
+  <div class="nav">
+    <div class="brand">
+      🌾 Garun Mallam Smart Hub
+      <span data-en="Agriculture • Markets • Youth • Delivery"
+            data-ha="Noma • Kasuwa • Matasa • Isar da kaya">
+        Agriculture • Markets • Youth • Delivery
+      </span>
+    </div>
+
+    <div class="nav-actions">
+      <button class="language" id="languageBtn" type="button">
+        Hausa
+      </button>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#home" data-en="Home" data-ha="Gida">Home</a>
+    <a href="#services" data-en="Services" data-ha="Ayyuka">Services</a>
+    <a href="#market" data-en="Market" data-ha="Kasuwa">Market</a>
+    <a href="#register" data-en="Register" data-ha="Rajista">Register</a>
+    <a href="#farming" data-en="Farm Help" data-ha="Taimakon noma">Farm Help</a>
+    <a href="#delivery" data-en="Delivery" data-ha="Isar da kaya">Delivery</a>
+    <a href="#about" data-en="About" data-ha="Game da mu">About</a>
+  </nav>
 </header>
 
+<div id="home" class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"
+         data-en="Built for our community"
+         data-ha="An gina shi domin al'ummarmu">
+      Built for our community
+    </div>
+
+    <h1 data-en="A smarter future for farming and business in Garun Mallam"
+        data-ha="Makoma mafi kyau ga noma da kasuwanci a Garun Mallam">
+      A smarter future for farming and business in Garun Mallam
+    </h1>
+
+    <p data-en="Connecting farmers, buyers, agricultural suppliers and young service providers through one digital platform."
+       data-ha="Haɗa manoma, masu saye, masu sayar da kayan noma da matasa masu sana'o'i ta hanyar dandali ɗaya na dijital.">
+      Connecting farmers, buyers, agricultural suppliers and young service providers through one digital platform.
+    </p>
+
+    <a class="btn btn-gold" href="#register"
+       data-en="List your product or service"
+       data-ha="Tallata kayanka ko sana'arka">
+      List your product or service
+    </a>
+
+    <a class="btn btn-light" href="#market"
+       data-en="Explore our services"
+       data-ha="Duba ayyukanmu">
+      Explore our services
+    </a>
+  </div>
+</div>
+
 <main>
-<section class="hero">
-<div class="hero-inner">
-<div class="eyebrow" data-en="LOCAL DELIVERY • DIGITAL ADDRESSING" data-ha="ISAR DA KAYA • ADIRESHIN DIJITAL">LOCAL DELIVERY • DIGITAL ADDRESSING</div>
-<h1 data-en="Smarter Deliveries. More Accurate Addresses." data-ha="Isar da Kaya cikin Sauƙi. Ingantattun Adiresoshi.">Smarter Deliveries. More Accurate Addresses.</h1>
-<p data-en="A delivery-address assistant designed to help farmers, building-material suppliers and local businesses organise delivery details clearly." data-ha="Wata manhaja ta taimaka wa manoma, masu sayar da kayan gini da 'yan kasuwa tsara bayanan isar da kaya cikin sauƙi.">A delivery-address assistant designed to help farmers, building-material suppliers and local businesses organise delivery details clearly.</p>
-<div class="actions">
-<a class="btn gold" href="#order" data-en="Create a Delivery Summary" data-ha="Ƙirƙiri Takaitaccen Bayanin Kaya">Create a Delivery Summary</a>
-<a class="btn white" href="#about" data-en="Explore the Project" data-ha="Duba Bayanin Aikin">Explore the Project</a>
-</div>
-</div>
-</section>
+  <div class="notice">
+    <strong data-en="Prototype notice:"
+            data-ha="Sanarwar samfurin gwaji:">Prototype notice:</strong>
+    <span data-en="This is an early demonstration. Listings are not yet stored in a shared database. Verify prices, sellers and agricultural advice independently."
+          data-ha="Wannan samfurin gwaji ne na farko. Ba a riga an ajiye tallace-tallace a rumbun bayanai na bai ɗaya ba. Ka tabbatar da farashi, masu sayarwa da shawarwarin noma da kanka.">
+      This is an early demonstration. Listings are not yet stored in a shared database. Verify prices, sellers and agricultural advice independently.
+    </span>
+  </div>
 
-<div class="container">
-<section class="intro">
-<h2 data-en="Making Local Deliveries Easier to Organise" data-ha="Sauƙaƙa Tsara Isar da Kaya a Al'umma">Making Local Deliveries Easier to Organise</h2>
-<p data-en="Incomplete directions can cause delays and failed deliveries. This prototype helps organise recipient details, postcode information and useful location instructions in one place." data-ha="Rashin cikakken adireshi na iya jawo jinkiri ko kasa isar da kaya. Wannan samfurin gwaji yana taimakawa wajen tsara bayanan mai karɓa, lambar adireshi da umarnin inda za a kai kaya a wuri guda.">Incomplete directions can cause delays and failed deliveries. This prototype helps organise recipient details, postcode information and useful location instructions in one place.</p>
-</section>
+  <section id="services">
+    <h2 class="section-title"
+        data-en="What can you do here?"
+        data-ha="Me za ka iya yi a nan?">What can you do here?</h2>
 
-<section class="section">
-<h2 data-en="Who Could Benefit?" data-ha="Waɗanne Mutane Za Su Amfana?">Who Could Benefit?</h2>
-<p class="lead" data-en="Initially focused on Garun Mallam, Kano State, with potential to expand to other communities." data-ha="An fara mayar da hankali kan Garun Mallam, Jihar Kano, tare da yiwuwar faɗaɗa zuwa sauran al'ummomi.">Initially focused on Garun Mallam, Kano State, with potential to expand to other communities.</p>
-<div class="grid">
-<article class="card"><div class="icon">🌾</div><h3 data-en="Farmers and Produce Sellers" data-ha="Manoma da Masu Sayar da Amfanin Gona">Farmers and Produce Sellers</h3><p data-en="Organise delivery details for agricultural produce and supplies." data-ha="Tsara bayanan isar da amfanin gona da kayan aikin noma.">Organise delivery details for agricultural produce and supplies.</p></article>
-<article class="card"><div class="icon">🧱</div><h3 data-en="Building-Material Suppliers" data-ha="Masu Sayar da Kayan Gini">Building-Material Suppliers</h3><p data-en="Record delivery addresses for cement, rods, tools and other materials." data-ha="Ajiye bayanan adireshin isar da siminti, ƙarafa, kayan aiki da sauran kayayyaki.">Record delivery addresses for cement, rods, tools and other materials.</p></article>
-<article class="card"><div class="icon">🚚</div><h3 data-en="Drivers and Local Businesses" data-ha="Direbobi da 'Yan Kasuwa">Drivers and Local Businesses</h3><p data-en="Prepare clearer delivery summaries with recipient and location details." data-ha="Shirya cikakkun bayanan isar da kaya tare da bayanan mai karɓa da wurin da za a kai.">Prepare clearer delivery summaries with recipient and location details.</p></article>
-</div>
-</section>
+    <p class="section-intro"
+       data-en="One platform with room to grow as our community's needs develop."
+       data-ha="Dandali ɗaya da za mu riƙa faɗaɗa bisa buƙatun al'ummarmu.">
+      One platform with room to grow as our community's needs develop.
+    </p>
 
-<section class="section" id="order">
-<h2 data-en="Delivery Details Assistant" data-ha="Mataimakin Bayanan Isar da Kaya">Delivery Details Assistant</h2>
-<p class="lead" data-en="Enter sample or authorised delivery details to generate a summary. This prototype does not send information to a delivery company." data-ha="Shigar da bayanan gwaji ko bayanan da aka ba da izini domin samar da takaitaccen bayani. Wannan samfurin gwaji ba ya aika bayanai zuwa kamfanin isar da kaya.">Enter sample or authorised delivery details to generate a summary. This prototype does not send information to a delivery company.</p>
-<div class="form-card">
-<form id="deliveryForm">
-<label for="recipient" data-en="Recipient's Name *" data-ha="Sunan Mai Karɓa *">Recipient's Name *</label>
-<input id="recipient" required maxlength="100" data-en-placeholder="Enter recipient's name" data-ha-placeholder="Shigar da sunan mai karɓa" placeholder="Enter recipient's name">
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🌽</div>
+        <h3 data-en="Farm Produce Market" data-ha="Kasuwar amfanin gona">Farm Produce Market</h3>
+        <p data-en="Promote maize, rice, beans and other produce to potential buyers."
+           data-ha="Tallata masara, shinkafa, wake da sauran amfanin gona ga masu saye.">
+          Promote maize, rice, beans and other produce to potential buyers.
+        </p>
+        <a href="#register" data-en="List produce →" data-ha="Tallata amfanin gona →">List produce →</a>
+      </article>
 
-<label for="phone" data-en="Recipient's Phone Number *" data-ha="Lambar Wayar Mai Karɓa *">Recipient's Phone Number *</label>
-<input id="phone" type="tel" required maxlength="25" data-en-placeholder="Enter contact number" data-ha-placeholder="Shigar da lambar waya" placeholder="Enter contact number">
+      <article class="card">
+        <div class="card-icon">🧑🏽‍🌾</div>
+        <h3 data-en="Agricultural Supplies" data-ha="Kayan aikin noma">Agricultural Supplies</h3>
+        <p data-en="Help people discover sellers of seeds, fertilizer, tools and farm inputs."
+           data-ha="Taimaka wa mutane gano masu sayar da iri, taki, kayan aiki da sauran kayan noma.">
+          Help people discover sellers of seeds, fertilizer, tools and farm inputs.
+        </p>
+        <a href="#register" data-en="List your supplies →" data-ha="Tallata kayan noma →">List your supplies →</a>
+      </article>
 
-<label for="postcode" data-en="Digital Postcode (if available)" data-ha="Digital Postcode (idan akwai)">Digital Postcode (if available)</label>
-<input id="postcode" maxlength="40" data-en-placeholder="Enter the building postcode" data-ha-placeholder="Shigar da postcode na ginin" placeholder="Enter the building postcode">
+      <article class="card">
+        <div class="card-icon">🛵</div>
+        <h3 data-en="Youth Jobs and Services" data-ha="Ayyukan matasa">Youth Jobs and Services</h3>
+        <p data-en="Promote delivery, farm work, repairs, trading and other useful services."
+           data-ha="Tallata jigilar kaya, aikin gona, gyara, kasuwanci da sauran sana'o'i.">
+          Promote delivery, farm work, repairs, trading and other useful services.
+        </p>
+        <a href="#register" data-en="Promote a service →" data-ha="Tallata sana'a →">Promote a service →</a>
+      </article>
 
-<label for="address" data-en="Additional Address Instructions *" data-ha="Ƙarin Bayanin Adireshi *">Additional Address Instructions *</label>
-<textarea id="address" required maxlength="500" data-en-placeholder="Neighbourhood, nearby landmark or directions" data-ha-placeholder="Unguwa, sanannen wuri kusa ko hanyar zuwa wurin" placeholder="Neighbourhood, nearby landmark or directions"></textarea>
+      <article class="card">
+        <div class="card-icon">🌦️</div>
+        <h3 data-en="Farm Information" data-ha="Bayanan noma">Farm Information</h3>
+        <p data-en="Learn about crop care, weather information and where to seek expert help."
+           data-ha="Koyi kula da amfanin gona, bayanan yanayi da wurin samun taimakon ƙwararru.">
+          Learn about crop care, weather information and where to seek expert help.
+        </p>
+        <a href="#farming" data-en="Read farm guidance →" data-ha="Karanta shawarwarin noma →">Read farm guidance →</a>
+      </article>
+    </div>
+  </section>
 
-<label for="goods" data-en="Type of Goods" data-ha="Nau'in Kaya">Type of Goods</label>
-<select id="goods">
-<option value="farm" data-en="Agricultural Produce or Supplies" data-ha="Amfanin Gona ko Kayan Noma">Agricultural Produce or Supplies</option>
-<option value="building" data-en="Building Materials" data-ha="Kayan Gini">Building Materials</option>
-<option value="retail" data-en="Retail or Business Goods" data-ha="Kayan Shago ko Kasuwanci">Retail or Business Goods</option>
-<option value="other" data-en="Other Goods" data-ha="Sauran Kayayyaki">Other Goods</option>
-</select>
+  <section id="market">
+    <h2 class="section-title"
+        data-en="Market and community listings"
+        data-ha="Tallace-tallacen kasuwa da al'umma">
+      Market and community listings
+    </h2>
 
-<label for="notes" data-en="Additional Delivery Notes" data-ha="Ƙarin Bayanin Isar da Kaya">Additional Delivery Notes</label>
-<textarea id="notes" maxlength="500" data-en-placeholder="Optional delivery details" data-ha-placeholder="Ƙarin bayani idan akwai" placeholder="Optional delivery details"></textarea>
+    <p class="section-intro"
+       data-en="Use the registration form below to prepare a listing. This demo does not yet publish it to a public market."
+       data-ha="Yi amfani da fom ɗin rajista da ke ƙasa domin shirya tallace-tallace. Wannan gwajin bai riga ya wallafa su a kasuwar jama'a ba.">
+      Use the registration form below to prepare a listing. This demo does not yet publish it to a public market.
+    </p>
 
-<button class="btn gold full" type="submit" data-en="Generate Delivery Summary" data-ha="Samar da Takaitaccen Bayani">Generate Delivery Summary</button>
-</form>
+    <div class="grid">
+      <article class="card">
+        <span class="pill" data-en="For farmers" data-ha="Ga manoma">For farmers</span>
+        <h3 data-en="Find potential buyers" data-ha="Nemo masu saye">Find potential buyers</h3>
+        <p data-en="Prepare details of your produce, quantity and asking price."
+           data-ha="Shirya bayanan amfanin gonarka, adadi da farashin da kake nema.">
+          Prepare details of your produce, quantity and asking price.
+        </p>
+      </article>
 
-<div id="result" aria-live="polite">
-<h3 data-en="Delivery Summary" data-ha="Takaitaccen Bayanin Isar da Kaya">Delivery Summary</h3>
-<div id="summary"></div>
-<p class="notice" data-en="This summary is generated in your browser. It has not been sent to a driver or delivery company." data-ha="An samar da wannan bayani a cikin browser ɗinka. Ba a aika shi ga direba ko kamfanin isar da kaya ba.">This summary is generated in your browser. It has not been sent to a driver or delivery company.</p>
-<button class="btn gold" type="button" id="copyBtn" onclick="copySummary()" data-en="Copy Summary" data-ha="Kwafi Bayanin">Copy Summary</button>
-</div>
-</div>
-</section>
+      <article class="card">
+        <span class="pill" data-en="For suppliers" data-ha="Ga masu kaya">For suppliers</span>
+        <h3 data-en="Promote farm inputs" data-ha="Tallata kayan noma">Promote farm inputs</h3>
+        <p data-en="Share information about seeds, fertilizer, tools or other products."
+           data-ha="Bayyana bayanai game da iri, taki, kayan aiki ko sauran kayayyaki.">
+          Share information about seeds, fertilizer, tools or other products.
+        </p>
+      </article>
 
-<section class="section" id="about">
-<h2 data-en="Project Overview" data-ha="Bayanin Aikin">Project Overview</h2>
-<div class="card">
-<p><strong data-en="Project:" data-ha="Sunan Aiki:">Project:</strong> Garun Mallam Smart Delivery</p>
-<p><strong data-en="Sector:" data-ha="Fannin Aiki:">Sector:</strong> <span data-en="Delivery, logistics and local commerce" data-ha="Isar da kaya, sufuri da kasuwancin cikin al'umma">Delivery, logistics and local commerce</span></p>
-<p><strong data-en="Initial target area:" data-ha="Wurin Farko:">Initial target area:</strong> <span data-en="Garun Mallam, Kano State, Nigeria" data-ha="Garun Mallam, Jihar Kano, Najeriya">Garun Mallam, Kano State, Nigeria</span></p>
-<p><strong data-en="Current stage:" data-ha="Matsayin Aikin Yanzu:">Current stage:</strong> <span data-en="Early working prototype" data-ha="Samfurin gwaji da ke aiki a matakin farko">Early working prototype</span></p>
-<p><strong data-en="Proposed next step:" data-ha="Mataki na Gaba:">Proposed next step:</strong> <span data-en="Explore integration with the official NIPOST Digital Postcode system, subject to developer access and API documentation." data-ha="Bincika haɗa aikin da tsarin NIPOST Digital Postcode idan an samu izinin masu haɓaka manhaja da takardun API.">Explore integration with the official NIPOST Digital Postcode system, subject to developer access and API documentation.</span></p>
-<p class="notice"><strong data-en="Integration status:" data-ha="Matsayin Haɗin Tsarin:">Integration status:</strong> <span data-en="The official NIPOST API is not connected yet. This prototype does not verify postcodes or retrieve official address records." data-ha="Har yanzu ba a haɗa official NIPOST API ba. Wannan samfurin gwaji ba ya tabbatar da postcode ko samo bayanan adireshi daga tsarin hukuma.">The official NIPOST API is not connected yet. This prototype does not verify postcodes or retrieve official address records.</span></p>
-</div>
-</section>
+      <article class="card">
+        <span class="pill" data-en="For young people" data-ha="Ga matasa">For young people</span>
+        <h3 data-en="Offer your services" data-ha="Bayar da sana'arka">Offer your services</h3>
+        <p data-en="Prepare a listing for delivery, farm work or another service."
+           data-ha="Shirya tallan jigilar kaya, aikin gona ko wata sana'a.">
+          Prepare a listing for delivery, farm work or another service.
+        </p>
+      </article>
+    </div>
+  </section>
 
-<section class="section">
-<h2 data-en="Intended Impact" data-ha="Amfanin da Ake Fata">Intended Impact</h2>
-<div class="card">
-<p data-en="We aim to explore whether clearer delivery information and, if authorised, official postcode integration can help reduce address confusion and improve delivery coordination for local businesses." data-ha="Muna son bincika ko ingantattun bayanan isar da kaya da haɗin postcode na hukuma idan an ba da izini za su rage rikicewar adireshi da inganta tsara isar da kaya ga 'yan kasuwa.">We aim to explore whether clearer delivery information and, if authorised, official postcode integration can help reduce address confusion and improve delivery coordination for local businesses.</p>
-<p class="small" style="color:#60736a" data-en="These intended benefits still need to be tested with users." data-ha="Har yanzu ana buƙatar gwada waɗannan amfanoni da masu amfani.">These intended benefits still need to be tested with users.</p>
-</div>
-</section>
-</div>
+  <section id="register">
+    <h2 class="section-title"
+        data-en="Register a product or service"
+        data-ha="Yi rajistar kaya ko sana'a">Register a product or service</h2>
+
+    <p class="section-intro"
+       data-en="Fill in the details. The website will prepare a message that you can copy and share."
+       data-ha="Cika bayanan. Gidan yanar gizon zai shirya saƙon da za ka iya kwafa ka aika.">
+      Fill in the details. The website will prepare a message that you can copy and share.
+    </p>
+
+    <div class="form-wrap">
+      <form id="listingForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="role" data-en="I am a..." data-ha="Ni ne...">I am a...</label>
+            <select id="role" required>
+              <option value="Farmer" data-en="Farmer" data-ha="Manomi">Farmer</option>
+              <option value="Buyer" data-en="Buyer" data-ha="Mai saye">Buyer</option>
+              <option value="Agricultural supplier" data-en="Agricultural supplier" data-ha="Mai sayar da kayan noma">Agricultural supplier</option>
+              <option value="Youth service provider" data-en="Youth service provider" data-ha="Matashi mai sana'a">Youth service provider</option>
+              <option value="Other business" data-en="Other business" data-ha="Wata sana'a">Other business</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="item" data-en="Product or service" data-ha="Kaya ko sana'a">Product or service</label>
+            <input id="item" required maxlength="100"
+                   placeholder="e.g. Maize, fertilizer, delivery">
+          </div>
+
+          <div class="field">
+            <label for="person" data-en="Your name" data-ha="Sunanka">Your name</label>
+            <input id="person" required maxlength="80" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="phone" data-en="Phone number" data-ha="Lambar waya">Phone number</label>
+            <input id="phone" type="tel" required maxlength="25"
+                   placeholder="Your contact number">
+          </div>
+
+          <div class="field">
+            <label for="location" data-en="Community or village" data-ha="Unguwa ko ƙauye">Community or village</label>
+            <input id="location" required maxlength="100"
+                   placeholder="e.g. Garun Mallam">
+          </div>
+
+          <div class="field">
+            <label for="postcode" data-en="Digital Postcode (optional)" data-ha="Digital Postcode (na zaɓi)">Digital Postcode (optional)</label>
+            <input id="postcode" maxlength="100"
+                   placeholder="Enter only if you have one">
+          </div>
+
+          <div class="field">
+            <label for="quantity" data-en="Quantity or service details" data-ha="Adadi ko bayanin sana'a">Quantity or service details</label>
+            <input id="quantity" maxlength="100"
+                   placeholder="e.g. 10 bags, delivery service">
+          </div>
+
+          <div class="field">
+            <label for="price" data-en="Price (optional, ₦)" data-ha="Farashi (na zaɓi, ₦)">Price (optional, ₦)</label>
+            <input id="price" inputmode="decimal" maxlength="30"
+                   placeholder="Enter your asking price">
+          </div>
+
+          <div class="field full">
+            <label for="details" data-en="Additional details" data-ha="Ƙarin bayani">Additional details</label>
+            <textarea id="details" maxlength="500"
+              placeholder="Describe your product, availability or service"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-green" type="submit"
+                  data-en="Prepare my listing"
+                  data-ha="Shirya tallana">Prepare my listing</button>
+          <button class="btn btn-light" type="reset"
+                  data-en="Clear form" data-ha="Goge bayanai">Clear form</button>
+        </div>
+      </form>
+
+      <div class="output" id="listingOutput" aria-live="polite">
+        <h3 data-en="Your prepared listing"
+            data-ha="Tallanka da aka shirya">Your prepared listing</h3>
+        <pre id="listingText"></pre>
+        <div class="form-actions">
+          <button class="btn btn-green" id="copyListing" type="button"
+                  data-en="Copy listing" data-ha="Kwafa tallan">Copy listing</button>
+          <button class="btn btn-light" id="shareListing" type="button"
+                  data-en="Share listing" data-ha="Aika tallan">Share listing</button>
+        </div>
+        <p class="small"
+           data-en="Your information is only processed in this browser demo. It is not sent to a shared database."
+           data-ha="Ana sarrafa bayananka ne kawai a wannan gwaji a wayarka. Ba a tura su zuwa rumbun bayanai na bai ɗaya ba.">
+          Your information is only processed in this browser demo. It is not sent to a shared database.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="farming">
+    <h2 class="section-title"
+        data-en="Farm information and practical guidance"
+        data-ha="Bayanan noma da shawarwari masu amfani">
+      Farm information and practical guidance
+    </h2>
+
+    <p class="section-intro"
+       data-en="Weather, crop pests, diseases and input costs matter. This section will grow as verified local information becomes available."
+       data-ha="Yanayi, kwari, cututtuka da tsadar kayan noma suna da muhimmanci. Za mu faɗaɗa wannan sashe idan sahihan bayanan yankin suka samu.">
+      Weather, crop pests, diseases and input costs matter. This section will grow as verified local information becomes available.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🌧️</div>
+        <h3 data-en="Weather and planting" data-ha="Yanayi da shuka">Weather and planting</h3>
+        <p data-en="Check trusted forecasts and consult local agricultural extension officers before making major planting decisions."
+           data-ha="Duba hasashen yanayi daga sahihan majiyoyi, sannan ka tuntubi jami'an noma kafin manyan shawarar shuka.">
+          Check trusted forecasts and consult local agricultural extension officers before making major planting decisions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🐛</div>
+        <h3 data-en="Crop pests and diseases" data-ha="Kwari da cututtuka">Crop pests and diseases</h3>
+        <p data-en="Record symptoms and seek expert advice. Do not apply pesticides without checking the correct product and safe instructions."
+           data-ha="Rubuta alamomin matsalar ka nemi shawarar ƙwararre. Kada ka yi amfani da maganin kwari ba tare da tabbatar da samfurin da umarnin tsaro ba.">
+          Record symptoms and seek expert advice. Do not apply pesticides without checking the correct product and safe instructions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🧺</div>
+        <h3 data-en="Reduce post-harvest losses" data-ha="Rage asarar bayan girbi">Reduce post-harvest losses</h3>
+        <p data-en="Explore safe drying, storage, packaging and market planning to help protect harvested produce."
+           data-ha="Binciki busarwa, ajiya, marufi da tsara kasuwa yadda ya dace domin rage asarar amfanin gona.">
+          Explore safe drying, storage, packaging and market planning to help protect harvested produce.
+        </p>
+      </article>
+    </div>
+    <p class="small"
+       data-en="No live weather forecast or automated crop diagnosis is connected in this version."
+       data-ha="Ba a haɗa hasashen yanayi na kai tsaye ko gano cututtukan amfanin gona ta atomatik a wannan sigar ba.">
+      No live weather forecast or automated crop diagnosis is connected in this version.
+    </p>
+  </section>
+
+  <section id="delivery">
+    <h2 class="section-title"
+        data-en="Smart Delivery and Digital Postcode"
+        data-ha="Smart Delivery da Digital Postcode">
+      Smart Delivery and Digital Postcode
+    </h2>
+
+    <div class="card">
+      <p data-en="Good delivery details can help farmers, buyers and suppliers coordinate the movement of goods."
+         data-ha="Cikakkun bayanan isar da kaya na iya taimaka wa manoma, masu saye da masu kaya wajen tsara jigilar kayayyaki.">
+        Good delivery details can help farmers, buyers and suppliers coordinate the movement of goods.
+      </p>
+      <ol class="steps">
+        <li data-en="Record the recipient's contact details and location."
+            data-ha="Rubuta bayanan tuntuɓar mai karɓa da wurinsa.">
+          Record the recipient's contact details and location.
+        </li>
+        <li data-en="Include a Digital Postcode if one is available."
+            data-ha="Ƙara Digital Postcode idan akwai.">
+          Include a Digital Postcode if one is available.
+        </li>
+        <li data-en="Agree on delivery cost and timing directly with the parties involved."
+            data-ha="Ku amince da kuɗin jigila da lokacin isarwa kai tsaye da masu ruwa da tsaki.">
+          Agree on delivery cost and timing directly with the parties involved.
+        </li>
+      </ol>
+
+      <p class="small"
+         data-en="NIPOST API integration is not active yet. This page does not validate postcodes or book deliveries."
+         data-ha="Ba a kunna haɗin NIPOST API ba tukuna. Wannan shafin ba ya tabbatar da Postcode ko yin booking na jigila.">
+        NIPOST API integration is not active yet. This page does not validate postcodes or book deliveries.
+      </p>
+
+      <a class="btn btn-green" href="https://postcode.gov.ng/"
+         target="_blank" rel="noopener noreferrer"
+         data-en="Visit NIPOST Postcode"
+         data-ha="Ziyarci NIPOST Postcode">
+        Visit NIPOST Postcode
+      </a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title"
+        data-en="About this project"
+        data-ha="Game da wannan aiki">About this project</h2>
+
+    <div class="card">
+      <p data-en="Garun Mallam Smart Agriculture & Market Hub is a community-focused digital prototype intended to support farmers, agricultural trade, youth services and better delivery information in Garun Mallam, Kano State, Nigeria."
+         data-ha="Garun Mallam Smart Agriculture & Market Hub samfurin gwaji ne na dijital da aka tsara domin taimaka wa manoma, kasuwancin noma, sana'o'in matasa da inganta bayanan isar da kaya a Garun Mallam, Jihar Kano, Najeriya.">
+        Garun Mallam Smart Agriculture & Market Hub is a community-focused digital prototype intended to support farmers, agricultural trade, youth services and better delivery information in Garun Mallam, Kano State, Nigeria.
+      </p>
+
+      <p data-en="The project is being developed as a practical technology portfolio project. Its features will be tested and improved using feedback from local users."
+         data-ha="Ana gina wannan aiki a matsayin project na fasaha da za a iya nunawa a portfolio. Za a gwada ayyukansa kuma a inganta su bisa ra'ayoyin masu amfani na yankin.">
+        The project is being developed as a practical technology portfolio project. Its features will be tested and improved using feedback from local users.
+      </p>
+
+      <span class="pill">Community project • Prototype</span>
+    </div>
+  </section>
 </main>
 
 <footer>
-<p><strong>Garun Mallam Smart Delivery</strong></p>
-<p data-en="Smarter Local Deliveries • A Prototype by Ibrahim Salisu Hub" data-ha="Sauƙaƙa Isar da Kaya • Samfurin Gwaji na Ibrahim Salisu Hub">Smarter Local Deliveries • A Prototype by Ibrahim Salisu Hub</p>
-<p class="small">Garun Mallam, Kano State, Nigeria · 2026</p>
+  <div class="footer-inner">
+    <strong>Garun Mallam Smart Agriculture & Market Hub</strong>
+    <p data-en="Supporting local agriculture, trade and youth opportunities through digital technology."
+       data-ha="Taimaka wa noma, kasuwanci da damar matasa ta hanyar fasahar dijital.">
+      Supporting local agriculture, trade and youth opportunities through digital technology.
+    </p>
+    <p>
+      <span data-en="Location: Garun Mallam, Kano State, Nigeria"
+            data-ha="Wuri: Garun Mallam, Jihar Kano, Najeriya">
+        Location: Garun Mallam, Kano State, Nigeria
+      </span>
+    </p>
+    <p>© <span id="year"></span> Garun Mallam Smart Hub</p>
+  </div>
 </footer>
 
 <script>
-let currentLanguage = "en";
-let currentSummary = "";
+  let currentLanguage = "en";
+  let preparedListing = "";
 
-function setLanguage(language) {
-  currentLanguage = language;
-  document.documentElement.lang = language === "ha" ? "ha" : "en";
+  const languageBtn = document.getElementById("languageBtn");
 
-  document.querySelectorAll("[data-en][data-ha]").forEach(element => {
-    if (element.tagName === "OPTION") {
-      element.textContent = element.dataset[language];
+  function setLanguage(language) {
+    currentLanguage = language;
+    document.documentElement.lang = language;
+
+    document.querySelectorAll("[data-en][data-ha]").forEach(function (element) {
+      const value = element.getAttribute("data-" + language);
+      if (value !== null) element.textContent = value;
+    });
+
+    languageBtn.textContent = language === "en" ? "Hausa" : "English";
+  }
+
+  languageBtn.addEventListener("click", function () {
+    setLanguage(currentLanguage === "en" ? "ha" : "en");
+  });
+
+  document.getElementById("listingForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const get = id => document.getElementById(id).value.trim();
+
+    const labels = currentLanguage === "en"
+      ? {
+          title: "GARUN MALLAM SMART HUB — LISTING",
+          role: "Type of user",
+          item: "Product or service",
+          name: "Name",
+          phone: "Phone",
+          location: "Community",
+          postcode: "Digital Postcode",
+          quantity: "Quantity/details",
+          price: "Asking price",
+          details: "Additional details",
+          na: "Not provided"
+        }
+      : {
+          title: "GARUN MALLAM SMART HUB — TALLA",
+          role: "Nau'in mai talla",
+          item: "Kaya ko sana'a",
+          name: "Suna",
+          phone: "Waya",
+          location: "Unguwa/ƙauye",
+          postcode: "Digital Postcode",
+          quantity: "Adadi/bayani",
+          price: "Farashin nema",
+          details: "Ƙarin bayani",
+          na: "Ba a bayar ba"
+        };
+
+    const roleSelect = document.getElementById("role");
+    const roleOption = roleSelect.options[roleSelect.selectedIndex];
+    const role = roleOption.getAttribute("data-" + currentLanguage)
+      || roleOption.textContent;
+
+    const lines = [
+      labels.title,
+      "",
+      labels.role + ": " + role,
+      labels.item + ": " + (get("item") || labels.na),
+      labels.name + ": " + (get("person") || labels.na),
+      labels.phone + ": " + (get("phone") || labels.na),
+      labels.location + ": " + (get("location") || labels.na),
+      labels.postcode + ": " + (get("postcode") || labels.na),
+      labels.quantity + ": " + (get("quantity") || labels.na),
+      labels.price + ": " + (get("price") ? "₦" + get("price") : labels.na),
+      labels.details + ": " + (get("details") || labels.na),
+      "",
+      "Garun Mallam Smart Agriculture & Market Hub",
+      "Prototype listing — independently verify all information."
+    ];
+
+    preparedListing = lines.join("\n");
+    document.getElementById("listingText").textContent = preparedListing;
+    document.getElementById("listingOutput").style.display = "block";
+    document.getElementById("listingOutput").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert(currentLanguage === "en"
+        ? "Listing copied. You can paste it into WhatsApp."
+        : "An kwafa tallan. Za ka iya manna shi a WhatsApp.");
+    } catch (error) {
+      const area = document.createElement("textarea");
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      const copied = document.execCommand("copy");
+      area.remove();
+
+      if (copied) {
+        alert(currentLanguage === "en"
+          ? "Listing copied."
+          : "An kwafa tallan.");
+      } else {
+        alert(currentLanguage === "en"
+          ? "Please select and copy the listing manually."
+          : "Da fatan zaɓi tallan ka kwafa da kanka.");
+      }
+    }
+  }
+
+  document.getElementById("copyListing").addEventListener("click", function () {
+    if (preparedListing) copyText(preparedListing);
+  });
+
+  document.getElementById("shareListing").addEventListener("click", async function () {
+    if (!preparedListing) return;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Garun Mallam Smart Hub",
+          text: preparedListing
+        });
+      } catch (error) {
+        if (error.name !== "AbortError") copyText(preparedListing);
+      }
     } else {
-      element.textContent = element.dataset[language];
+      copyText(preparedListing);
     }
   });
 
-  document.querySelectorAll("[data-en-placeholder][data-ha-placeholder]").forEach(element => {
-    element.placeholder = language === "ha"
-      ? element.dataset.haPlaceholder
-      : element.dataset.enPlaceholder;
+  document.getElementById("listingForm").addEventListener("reset", function () {
+    document.getElementById("listingOutput").style.display = "none";
+    preparedListing = "";
   });
 
-  document.getElementById("enBtn").classList.toggle("active", language === "en");
-  document.getElementById("haBtn").classList.toggle("active", language === "ha");
-
-  if (document.getElementById("result").style.display === "block") {
-    generateSummary();
-  }
-}
-
-function generateSummary() {
-  const ha = currentLanguage === "ha";
-  const fields = [
-    [ha ? "Mai karɓa" : "Recipient", document.getElementById("recipient").value.trim()],
-    [ha ? "Lambar waya" : "Phone", document.getElementById("phone").value.trim()],
-    [ha ? "Digital Postcode" : "Digital Postcode", document.getElementById("postcode").value.trim() || (ha ? "Ba a bayar ba" : "Not provided")],
-    [ha ? "Bayanin adireshi" : "Address Instructions", document.getElementById("address").value.trim()],
-    [ha ? "Nau'in kaya" : "Goods", document.getElementById("goods").selectedOptions[0].textContent],
-    [ha ? "Ƙarin bayani" : "Additional Notes", document.getElementById("notes").value.trim() || (ha ? "Babu" : "None")]
-  ];
-
-  currentSummary = fields.map(([label, value]) => label + ": " + value).join("\n");
-  const summary = document.getElementById("summary");
-  summary.replaceChildren();
-
-  fields.forEach(([label, value]) => {
-    const line = document.createElement("div");
-    line.className = "result-line";
-    const strong = document.createElement("strong");
-    strong.textContent = label + ": ";
-    line.appendChild(strong);
-    line.appendChild(document.createTextNode(value));
-    summary.appendChild(line);
-  });
-}
-
-document.getElementById("deliveryForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  generateSummary();
-  document.getElementById("result").style.display = "block";
-  document.getElementById("result").scrollIntoView({behavior:"smooth"});
-});
-
-async function copySummary() {
-  try {
-    await navigator.clipboard.writeText(currentSummary);
-    alert(currentLanguage === "ha" ? "An kwafi bayanin isar da kaya." : "Delivery summary copied.");
-  } catch (error) {
-    alert(currentLanguage === "ha"
-      ? "Kwafi bai yiwu ba a wannan browser. Za ka iya zaɓar rubutun ka kwafa da hannu."
-      : "Copy was unavailable. You can select the summary text and copy it manually.");
-  }
-}
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
