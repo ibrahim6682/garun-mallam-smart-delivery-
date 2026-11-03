@@ -922,9 +922,7 @@
       return;
     }
 
-    status.textContent = result.data?.valid
-      ? "Valid postcode confirmed by NIPOST."
-      : "Postcode could not be confirmed.";
+    status.textContent = "NIPOST response: " + JSON.stringify(result);
 
   } catch (error) {
     status.textContent = "Connection error. Please try again.";
