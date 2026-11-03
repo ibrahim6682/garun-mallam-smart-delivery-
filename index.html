@@ -891,6 +891,45 @@
   });
 
   document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("verifyPostcode").addEventListener("click", async function () {
+  const postcode = document.getElementById("postcode").value.trim();
+  const status = document.getElementById("postcodeStatus");
+
+  if (!postcode) {
+    status.textContent = "Please enter a postcode first.";
+    return;
+  }
+
+  status.textContent = "Checking postcode...";
+
+  try {
+    const response = await fetch(
+      "https://api.postcode.gov.ng/v1/lookup?code=" +
+      encodeURIComponent(postcode) + "&level=1",
+      {
+        headers: {
+          "X-API-Key":
+            "nipost_pk_test_8b5b1dddee88d109128ee775f16920c65838aa3f579572f5"
+        }
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      status.textContent = "Verification failed: " +
+        (result.message || result.error || response.status);
+      return;
+    }
+
+    status.textContent = result.data?.valid
+      ? "Valid postcode confirmed by NIPOST."
+      : "Postcode could not be confirmed.";
+
+  } catch (error) {
+    status.textContent = "Connection error. Please try again.";
+  }
+});
 </script>
 </body>
 </html>
